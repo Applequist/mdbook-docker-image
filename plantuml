@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CWD=$(dirname $0)
+
+if [[ "$*" != *"-gui"* ]]; then
+  VMARGS="-Djava.awt.headless=true"
+fi
+
+exec "/usr/bin/java" $VMARGS -jar $CWD/plantuml.jar "$@"
